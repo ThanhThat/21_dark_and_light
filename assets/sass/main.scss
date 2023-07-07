@@ -1,0 +1,146 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body.dark {
+  --primary-color: #4daf54;
+  --background-color: #2d2c2d;
+  --text-color: #fff;
+  --box-color: #3b3a3b;
+}
+
+body.light {
+  --primary-color: #0a6cf1;
+  --background-color: #fff;
+  --text-color: #383b38;
+  --box-color: #dadada;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Courier New", Courier, monospace;
+  line-height: 1;
+
+  background-color: var(--background-color);
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 4rem;
+}
+
+.btn {
+  border: none;
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 1.6rem 2.6rem;
+  font-size: 1.6rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: 0.25s;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.header {
+  padding: 2rem 5rem;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  .logo {
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+  }
+
+  .toggle {
+    width: 6rem;
+    height: 3rem;
+    background-color: #cfcece;
+
+    box-sizing: content-box;
+    border-radius: 2rem;
+    overflow: hidden;
+
+    &-mode {
+      width: inherit;
+      height: 3rem;
+      display: inline-block;
+      cursor: pointer;
+      position: relative;
+      padding: 2px;
+    }
+
+    &-mode::after {
+      content: "";
+      position: absolute;
+      left: 2px;
+      top: 50%;
+      transform: translate(30%, -50%);
+      display: inline-block;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      box-shadow: 0 0 4px rgba(0, 0, 0, 1);
+      background-color: #fff;
+      transition: all 0.25s ease-in;
+    }
+
+    #mode:checked ~ .toggle-mode::after {
+      transform: translate(160%, -50%);
+    }
+
+    #mode:checked ~ .toggle-mode {
+      background-color: var(--primary-color);
+    }
+  }
+}
+
+main {
+  margin: 10rem auto;
+  width: 120rem;
+
+  .heading {
+    font-size: 5rem;
+    text-align: center;
+    margin: 0 0 3rem;
+    color: var(--primary-color);
+  }
+
+  .wrapper {
+    padding: 4rem;
+    border-radius: 1rem;
+    text-align: justify;
+    background-color: var(--box-color);
+
+    p {
+      font-size: 1.8rem;
+      color: var(--text-color);
+      line-height: 1.5;
+    }
+  }
+}
